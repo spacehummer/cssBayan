@@ -7,15 +7,57 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS Bayan</title>
   <link rel="stylesheet" type="text/css" href="./assets/styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./pages/main/styles/style.css">
 </head>
 <body>
-<header class="header" id="header">
-  <h1 class="header__heading">
-    CSS Bayan
-  </h1>
-</header>
-<main class="main" id="main">
-
-</main>
+<div class="root-container">
+  <header class="header" id="header">
+    <div class="content">
+      <h1 class="header__heading">
+        CSS Bayan
+      </h1>
+    </div>
+  </header>
+  <main class="main" id="main">
+    <div class="content">
+      <section class="meme-accordion">
+        <div class="meme-accordion__element">
+          <input id="meme-1" class="meme-accordion__element__control" name="meme-accordion-element"
+                 type="checkbox" checked/>
+          <label class="meme-accordion__element__label" for="meme-1">RS School student mood</label>
+          <article class="meme-accordion__element__content">
+            <img src="./assets/img/rs-school-student-mood.png" alt="RS School student mood meme."
+                 class="meme-accordion__element__content__img">
+          </article>
+        </div>
+        <div class="meme-accordion__element">
+          <input id="meme-2" class="meme-accordion__element__control" name="meme-accordion-element"
+                 type="checkbox"/>
+          <label class="meme-accordion__element__label" for="meme-2">RS School student mood</label>
+          <article class="meme-accordion__element__content">
+            <img src="./assets/img/rs-school-student-mood.png" alt="RS School student mood meme."
+                 class="meme-accordion__element__content__img">
+          </article>
+        </div>
+        <div class="meme-accordion__element">
+          <input id="meme-3" class="meme-accordion__element__control" name="meme-accordion-element"
+                 type="checkbox"/>
+          <label class="meme-accordion__element__label" for="meme-3">RS School student mood</label>
+          <article class="meme-accordion__element__content">
+            <img src="./assets/img/rs-school-student-mood.png" alt="RS School student mood meme."
+                 class="meme-accordion__element__content__img">
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="content footer__content">
+      <p class="footer__content__placeholder">
+        RS School Task `cssBayan`
+      </p>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
