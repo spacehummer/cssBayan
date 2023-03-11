@@ -55,10 +55,14 @@ footer {
     font-size: 3em;
     color: #000000;
     text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    transition: text-shadow 1000ms ease-in,
+                color 1000ms ease-in;
     margin: 0;
 }
 
 .header__heading:hover {
+    transition: text-shadow 500ms ease-in-out,
+                color 500ms ease-in-out;
     color: #FFFF00;
     text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
     0.075em 0.075em 0.15em rgba(0,0,0,1);
