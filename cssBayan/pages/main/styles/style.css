@@ -22,11 +22,13 @@
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+    background-color: #F5F5EB;
 }
 
 .main {
     flex-grow: 1;
     height: 100%;
+    background-color: #F5F5EB;
 }
 
 footer {
@@ -35,6 +37,9 @@ footer {
     grid-template-columns: 1fr;
     align-items: center;
     font-size: 1.5em;
+    color: #000000;
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    background-color: #F5F5EB;
 }
 
 .content {
@@ -48,8 +53,17 @@ footer {
 /* <editor-fold desc="Header">*/
 .header__heading {
     font-size: 3em;
+    color: #000000;
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
     margin: 0;
 }
+
+.header__heading:hover {
+    color: #FFFF00;
+    text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
+    0.075em 0.075em 0.15em rgba(0,0,0,1);
+}
+
 /* </editor-fold desc="Header">*/
 
 /* <editor-fold desc="Accordion">*/
@@ -59,21 +73,75 @@ footer {
 }
 
 .meme-accordion__element__label {
+    /* Display */
+    display: block;
+    position: relative;
+    z-index: 2;
+    /* Font */
     font-size: 2em;
+    color: #000000;
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    /* Behavior */
+    cursor: pointer;
+}
+
+.meme-accordion__element__label:hover {
+    color: #FFFF00;
+    text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
+                    0.075em 0.075em 0.15em rgba(0,0,0,1);
+}
+
+.meme-accordion__element__control{
+    display: none;
 }
 
 .meme-accordion__element__content {
     display: grid;
     align-content: center;
     justify-items: center;
+    overflow: hidden;
+    /*-webkit-transition: all 0.2s ease-in-out;*/
+    /*-moz-transition: all 0.2s ease-in-out;*/
+    /*-o-transition: all 0.2s ease-in-out;*/
+    /*-ms-transition: all 0.2s ease-in-out;*/
+    /*transition: all 0.2s ease-in-out;*/
+    max-height: 0;
 }
 
 .meme-accordion__element__content__img {
-    width: 75%;
+    max-height: 75em;
     margin: 3% 0 3% 0;
+    /*-webkit-transition: transform 0.2s ease-in-out;*/
+    /*-moz-transition: transform 0.2s ease-in-out;*/
+    /*-o-transition: transform 0.2s ease-in-out;*/
+    /*-ms-transition: transform 0.2s ease-in-out;*/
+    /*transition: transform 0.2s ease-in-out;*/
+    transform: scale(0);
 }
 
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    max-height: 75em;
+}
+
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content > .meme-accordion__element__content__img {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1);
+    transform-origin: top;
+}
+
+/* </editor-fold desc="Accordion">*/
+
+/* <editor-fold desc="Footer">*/
 .footer__content {
     text-align: center;
 }
-/* </editor-fold desc="Accordion">*/
+/* </editor-fold desc="Footer">*/
