@@ -1,12 +1,14 @@
 
+/* <editor-fold desc="General styles">*/
 .root-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
     min-height: 100vh;
-    /*font-family: 'Roboto', sans-serif;*/
-    /*font-weight: 400;*/
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
 }
 
 .main,
@@ -32,18 +34,32 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+    font-size: 1.5em;
 }
 
 .content {
-    max-width: 768px;
+    max-width: 50em;
     width: 100%;
     margin: 0 auto;
     padding: 0 2.5%;
 }
+/* </editor-fold desc="General styles">*/
 
+/* <editor-fold desc="Header">*/
+.header__heading {
+    font-size: 3em;
+    margin: 0;
+}
+/* </editor-fold desc="Header">*/
+
+/* <editor-fold desc="Accordion">*/
 .meme-accordion {
     display: grid;
     grid-template-rows: 1fr;
+}
+
+.meme-accordion__element__label {
+    font-size: 2em;
 }
 
 .meme-accordion__element__content {
@@ -60,3 +76,4 @@ footer {
 .footer__content {
     text-align: center;
 }
+/* </editor-fold desc="Accordion">*/
