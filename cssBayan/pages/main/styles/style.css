@@ -75,6 +75,14 @@ footer {
 .meme-accordion {
     display: grid;
     grid-template-rows: 1fr;
+    /* Disable select */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       /*noinspection CssUnknownProperty*/
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version */
 }
 
 .meme-accordion__label-line {
@@ -128,7 +136,7 @@ footer {
 }
 
 .meme-accordion__element__content__img {
-    max-height: 75em;
+    max-height: 17.5em;
     margin: 3% 0 3% 0;
     /*-webkit-transition: transform 0.2s ease-in-out;*/
     /*-moz-transition: transform 0.2s ease-in-out;*/
@@ -138,16 +146,42 @@ footer {
     transform: scale(0);
 }
 
-.meme-accordion__element__control:checked ~ .meme-accordion__element__content {
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+.label-line__icon {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Open accordion element by check */
+/* Open accordion element by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__element__content {
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    -ms-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
     max-height: 75em;
 }
 
-.meme-accordion__element__control:checked ~ .meme-accordion__element__content > .meme-accordion__element__content__img {
+/* Rotate plus mark to x mark in label-line by check */
+/* Rotate plus mark to x mark in label-line by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__label-line .label-line__icon,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__label-line .label-line__icon {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transform: rotate(225deg);
+}
+
+/* Appearance img from a point accordion element by check */
+/* Appearance img from a point accordion element by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content > .meme-accordion__element__content__img,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__element__content > .meme-accordion__element__content__img {
     -webkit-transition: transform 0.5s ease-in-out;
     -moz-transition: transform 0.5s ease-in-out;
     -o-transition: transform 0.5s ease-in-out;
@@ -157,13 +191,26 @@ footer {
     transform-origin: top;
 }
 
+/* Display label icon by hover on accordion body */
 .meme-accordion:hover .label-line__icon {
     display: block;
 }
 
+/* Change label-line__label by hover on accordion body */
 .meme-accordion:hover .label-line__label {
     color: #000000;
     opacity: 1.0;
+}
+
+/* Change label-line__label by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__label-line > .label-line__label {
+    color: #155bdc;
+    opacity: 1.0;
+}
+
+/* Change label-line__icon by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__label-line > .label-line__icon path {
+    fill: blue;
 }
 
 /* </editor-fold desc="Accordion">*/
