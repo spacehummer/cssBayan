@@ -77,6 +77,17 @@ footer {
     grid-template-rows: 1fr;
 }
 
+.meme-accordion__label-line {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+}
+
+.label-line__icon {
+    display: none;
+}
+
+.label-line__label,
 .meme-accordion__element__label {
     /* Display */
     display: block;
@@ -85,12 +96,14 @@ footer {
     /* Font */
     font-weight: 500;
     font-size: 2em;
-    color: #000000;
+    color: #1545e3;
     text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    opacity: 0.8;
     /* Behavior */
     cursor: pointer;
 }
 
+.meme-accordion:hover .label-line__label:hover,
 .meme-accordion__element__label:hover {
     color: #FFFF00;
     text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
@@ -142,6 +155,15 @@ footer {
     transition: transform 0.5s ease-in-out;
     transform: scale(1);
     transform-origin: top;
+}
+
+.meme-accordion:hover .label-line__icon {
+    display: block;
+}
+
+.meme-accordion:hover .label-line__label {
+    color: #000000;
+    opacity: 1.0;
 }
 
 /* </editor-fold desc="Accordion">*/
