@@ -108,7 +108,7 @@ footer {
     /* Font */
     font-weight: 500;
     font-size: 2em;
-    color: #1545e3;
+
     text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
     opacity: 0.8;
     /* Behavior */
@@ -116,6 +116,10 @@ footer {
     /* Size */
     width: 100%;
     max-width: 50em;
+}
+
+.meme-accordion:not(:hover) .meme-accordion__element__control:not(:checked) ~ .meme-accordion__label-line .label-line__label {
+    color: #1545e3;
 }
 
 .meme-accordion:hover .label-line__label:hover {
@@ -152,6 +156,11 @@ footer {
     /*-o-transition: transform 0.2s ease-in-out;*/
     /*-ms-transition: transform 0.2s ease-in-out;*/
     /*transition: transform 0.2s ease-in-out;*/
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     transform: scale(0);
 }
 
@@ -220,6 +229,16 @@ footer {
 /* Change label-line__icon by click on accordion element */
 .meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__label-line > .label-line__icon path {
     fill: blue;
+}
+
+/* Change meme-accordion__element__content__img by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__element__content__img {
+    opacity: 0.8;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+    -ms-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
 }
 
 /* </editor-fold desc="Accordion">*/
