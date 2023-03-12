@@ -1,4 +1,9 @@
 
+* {
+    box-sizing: border-box;
+    /*outline: solid red 1px;*/
+}
+
 /* <editor-fold desc="General styles">*/
 .root-container {
     display: flex;
@@ -87,7 +92,7 @@ footer {
 
 .meme-accordion__label-line {
     display: grid;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: auto auto;
     justify-content: space-between;
 }
 
@@ -95,8 +100,7 @@ footer {
     display: none;
 }
 
-.label-line__label,
-.meme-accordion__element__label {
+.label-line__label {
     /* Display */
     display: block;
     position: relative;
@@ -109,10 +113,12 @@ footer {
     opacity: 0.8;
     /* Behavior */
     cursor: pointer;
+    /* Size */
+    width: 100%;
+    max-width: 50em;
 }
 
-.meme-accordion:hover .label-line__label:hover,
-.meme-accordion__element__label:hover {
+.meme-accordion:hover .label-line__label:hover {
     color: #FFFF00;
     text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
                     0.075em 0.075em 0.15em rgba(0,0,0,1);
@@ -124,6 +130,7 @@ footer {
 
 .meme-accordion__element__content {
     display: grid;
+    grid-template-rows: auto;
     align-content: center;
     justify-items: center;
     overflow: hidden;
@@ -137,6 +144,8 @@ footer {
 
 .meme-accordion__element__content__img {
     max-height: 17.5em;
+    max-width: 17.5em;
+    object-fit: contain;
     margin: 3% 0 3% 0;
     /*-webkit-transition: transform 0.2s ease-in-out;*/
     /*-moz-transition: transform 0.2s ease-in-out;*/
@@ -220,3 +229,51 @@ footer {
     text-align: center;
 }
 /* </editor-fold desc="Footer">*/
+
+/* <editor-fold desc="Media">*/
+@media screen and (min-width: 900px) and (hover: hover) and (pointer: fine) {
+    .meme-accordion__element {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .header {
+        height: 5em;
+    }
+
+    .header__heading {
+        font-size: 2.5em;
+    }
+
+    .label-line__label {
+        font-size: 1.5em;
+    }
+
+    footer {
+        font-size: 1.25em;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        height: 4em;
+    }
+
+    .header__heading {
+        font-size: 2em;
+    }
+
+    .label-line__label {
+        font-size: 1em;
+    }
+
+    footer {
+        font-size: 1em;
+    }
+}
+
+/* </editor-fold desc="Media">*/
