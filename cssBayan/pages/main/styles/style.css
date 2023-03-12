@@ -1,0 +1,298 @@
+
+* {
+    box-sizing: border-box;
+    /*outline: solid red 1px;*/
+}
+
+/* <editor-fold desc="General styles">*/
+.root-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    min-height: 101vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+}
+
+.main,
+.header {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    height: 6em;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    background-color: #F5F5EB;
+}
+
+.main {
+    flex-grow: 1;
+    height: 100%;
+    background-color: #F5F5EB;
+}
+
+footer {
+    height: 4em;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    font-size: 1.5em;
+    color: #000000;
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    background-color: #F5F5EB;
+}
+
+.content {
+    max-width: 50em;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2.5%;
+}
+/* </editor-fold desc="General styles">*/
+
+/* <editor-fold desc="Header">*/
+.header__heading {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    color: #000000;
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    transition: text-shadow 1000ms ease-in,
+                color 1000ms ease-in;
+    margin: 0;
+}
+
+.header__heading:hover {
+    transition: text-shadow 500ms ease-in-out,
+                color 500ms ease-in-out;
+    color: #FFFF00;
+    text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
+    0.075em 0.075em 0.15em rgba(0,0,0,1);
+}
+
+/* </editor-fold desc="Header">*/
+
+/* <editor-fold desc="Accordion">*/
+.meme-accordion {
+    display: grid;
+    grid-template-rows: 1fr;
+    /* Disable select */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       /*noinspection CssUnknownProperty*/
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version */
+}
+
+.meme-accordion__label-line {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+
+.label-line__icon {
+    display: none;
+}
+
+.label-line__label {
+    /* Display */
+    display: block;
+    position: relative;
+    z-index: 2;
+    /* Font */
+    font-weight: 500;
+    font-size: 2em;
+
+    text-shadow: 0.075em 0.075em 0.1em rgba(0,0,0,0.5);
+    opacity: 0.8;
+    /* Behavior */
+    cursor: pointer;
+    /* Size */
+    width: 100%;
+    max-width: 50em;
+}
+
+.meme-accordion:not(:hover) .meme-accordion__element__control:not(:checked) ~ .meme-accordion__label-line .label-line__label {
+    color: #1545e3;
+}
+
+.meme-accordion:hover .label-line__label:hover {
+    color: #FFFF00;
+    text-shadow:    0.05em 0.05em 0.025em rgba(225, 105, 0, 1),
+                    0.075em 0.075em 0.15em rgba(0,0,0,1);
+}
+
+.meme-accordion__element__control{
+    display: none;
+}
+
+.meme-accordion__element__content {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    justify-items: center;
+    overflow: hidden;
+    /*-webkit-transition: all 0.2s ease-in-out;*/
+    /*-moz-transition: all 0.2s ease-in-out;*/
+    /*-o-transition: all 0.2s ease-in-out;*/
+    /*-ms-transition: all 0.2s ease-in-out;*/
+    /*transition: all 0.2s ease-in-out;*/
+    max-height: 0;
+}
+
+.meme-accordion__element__content__img {
+    max-height: 17.5em;
+    max-width: 17.5em;
+    object-fit: contain;
+    margin: 3% 0 3% 0;
+    /*-webkit-transition: transform 0.2s ease-in-out;*/
+    /*-moz-transition: transform 0.2s ease-in-out;*/
+    /*-o-transition: transform 0.2s ease-in-out;*/
+    /*-ms-transition: transform 0.2s ease-in-out;*/
+    /*transition: transform 0.2s ease-in-out;*/
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    transform: scale(0);
+}
+
+.label-line__icon {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Open accordion element by check */
+/* Open accordion element by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__element__content {
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    -ms-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 75em;
+}
+
+/* Rotate plus mark to x mark in label-line by check */
+/* Rotate plus mark to x mark in label-line by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__label-line .label-line__icon,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__label-line .label-line__icon {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transform: rotate(225deg);
+}
+
+/* Appearance img from a point accordion element by check */
+/* Appearance img from a point accordion element by hover */
+.meme-accordion__element__control:checked ~ .meme-accordion__element__content > .meme-accordion__element__content__img,
+.meme-accordion:hover .meme-accordion__element:hover .meme-accordion__element__content > .meme-accordion__element__content__img {
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1);
+    transform-origin: top;
+}
+
+/* Display label icon by hover on accordion body */
+.meme-accordion:hover .label-line__icon {
+    display: block;
+}
+
+/* Change label-line__label by hover on accordion body */
+.meme-accordion:hover .label-line__label {
+    color: #000000;
+    opacity: 1.0;
+}
+
+/* Change label-line__label by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__label-line > .label-line__label {
+    color: #155bdc;
+    opacity: 1.0;
+}
+
+/* Change label-line__icon by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__label-line > .label-line__icon path {
+    fill: blue;
+}
+
+/* Change meme-accordion__element__content__img by click on accordion element */
+.meme-accordion:hover:active .meme-accordion__element:hover .meme-accordion__element__content__img {
+    opacity: 0.8;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+    -ms-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+}
+
+/* </editor-fold desc="Accordion">*/
+
+/* <editor-fold desc="Footer">*/
+.footer__content {
+    text-align: center;
+}
+/* </editor-fold desc="Footer">*/
+
+/* <editor-fold desc="Media">*/
+@media screen and (min-width: 900px) and (hover: hover) and (pointer: fine) {
+    .meme-accordion__element {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .header {
+        height: 5em;
+    }
+
+    .header__heading {
+        font-size: 2.5em;
+    }
+
+    .label-line__label {
+        font-size: 1.5em;
+    }
+
+    footer {
+        font-size: 1.25em;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        height: 4em;
+    }
+
+    .header__heading {
+        font-size: 2em;
+    }
+
+    .label-line__label {
+        font-size: 1em;
+    }
+
+    footer {
+        font-size: 1em;
+    }
+}
+
+/* </editor-fold desc="Media">*/
